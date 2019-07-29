@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:SampleTaskWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="LightGreenColor" Color="#2FA999"/>
+        <SolidColorBrush x:Key="LightGrayColor" Color="#F7F7F7"/>
     </Application.Resources>
 </Application>

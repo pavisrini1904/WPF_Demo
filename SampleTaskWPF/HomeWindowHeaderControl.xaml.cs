@@ -16,20 +16,13 @@ using System.Windows.Shapes;
 namespace SampleTaskWPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HomeWindowHeaderControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomeWindowHeaderControl : UserControl
     {
-        public MainWindow()
+        public HomeWindowHeaderControl()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            HomeWindow nextPage = new HomeWindow();
-            nextPage.Show();
-            this.Close();
         }
     }
 }

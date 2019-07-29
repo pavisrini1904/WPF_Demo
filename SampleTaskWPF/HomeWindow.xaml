@@ -6,20 +6,91 @@
         xmlns:local="clr-namespace:SampleTaskWPF"
         mc:Ignorable="d"
         WindowState="Maximized" WindowStyle="None" Title="HomeWindow" Height="450" Width="800">
-    <Grid>
-        <StackPanel Background="#333333" Height="40" VerticalAlignment="Top" Orientation="Horizontal">
-            <!--<Grid>
-                <StackPanel Background="#333333" Height="40" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Label Content="Sample Task in WPF" Foreground="White" FontSize="20"></Label>
+    <Grid >
+        <Grid.Resources>
+            <Style x:Key="GreenStackPanelStyle" TargetType="StackPanel">
+                <Setter Property="Background" Value="{StaticResource LightGreenColor}"></Setter>
+                <Setter Property="Height" Value="60"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                <Setter Property="Margin" Value="0,40,0,0"></Setter>
+            </Style>
+            <Style x:Key="StackPanelLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="28"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Style>
+            <Style x:Key="TextboxCommonStackPanelStyle" TargetType="StackPanel">
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                <Setter Property="Background" Value="{StaticResource LightGrayColor}"></Setter>
+                <Setter Property="Height" Value="100"></Setter>
+                <Setter Property="Margin" Value="0,100,0,0"></Setter>
+            </Style>
+            <Style x:Key="ColumnWiseStackPanelStyle" TargetType="StackPanel">
+                <Setter Property="Orientation" Value="Horizontal"></Setter>
+            </Style>
+            <Style x:Key="TextboxLableStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="22"></Setter>
+            </Style>
+            <Style x:Key="TextboxStyle" TargetType="TextBox">
+                <Setter Property="Width" Value="300"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid x:Name="HeaderLayout">
+            <local:HomeWindowHeaderControl/>
+        </Grid>
+        <Grid>
+            <StackPanel Style="{StaticResource GreenStackPanelStyle}">
+                <Label Content="Design Task" Style="{StaticResource StackPanelLabelStyle}"></Label>
+            </StackPanel>
+            <StackPanel Style="{StaticResource TextboxCommonStackPanelStyle}">
+                <StackPanel Margin="20,20" Orientation="Horizontal">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="430"/>
+                            <ColumnDefinition Width="430"/>
+                            <ColumnDefinition Width="370"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Style="{StaticResource ColumnWiseStackPanelStyle}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Label Style="{StaticResource TextboxLableStyle}">Country</Label>
+                                <TextBox Grid.Row="1" Style="{StaticResource TextboxStyle}"></TextBox>
+                            </Grid>
+                            
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource ColumnWiseStackPanelStyle}" Grid.Column="1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Label Style="{StaticResource TextboxLableStyle}">City</Label>
+                                <TextBox Grid.Row="1" Style="{StaticResource TextboxStyle}"></TextBox>
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource ColumnWiseStackPanelStyle}" Grid.Column="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Label Style="{StaticResource TextboxLableStyle}">State</Label>
+                                <TextBox Grid.Row="1" Style="{StaticResource TextboxStyle}"></TextBox>
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Background="{StaticResource LightGreenColor}"  Grid.Column="3" Width="200" Height="40">
+                            
+                        </StackPanel>
+                    </Grid>
+                    
                 </StackPanel>
-                <StackPanel Background="#333333" Height="40" Width="40" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Image Source="Images\icon_settings.png"/>
-                </StackPanel>
-            </Grid>-->
-            <DockPanel>
-                <Label DockPanel.Dock="Left" Height="50" Foreground="White">Sample Task in WPF</Label>
-                <Image Source="Images\icon_settings.png" DockPanel.Dock="Right" Height="40" Width="40"></Image>
-            </DockPanel>
-        </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
+
 </Window>
