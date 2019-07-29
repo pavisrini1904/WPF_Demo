@@ -5,8 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SampleTaskWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        WindowState="Maximized" Title="MainWindow" Height="450" Width="800">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.Resources>
+            <Style x:Key="MainStackPanelStyle" TargetType="StackPanel">
+                <Setter Property="Background" Value="#F7F7F7"></Setter>
+                <Setter Property="Height" Value="300"></Setter>
+                <Setter Property="Width" Value="350"></Setter>
+            </Style>
+            <Style x:Key="StackPanelStyle" TargetType="StackPanel">
+                <Setter Property="Background" Value="#F7F7F7"></Setter>
+                <Setter Property="Margin" Value="50,50"></Setter>
+            </Style>
+            <Style x:Key="LoginPageTextBoxStyle" TargetType="TextBox">
+                <Setter Property="Height" Value="30"></Setter>
+            </Style>
+            <Style x:Key="LoginButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#2FA999"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Margin" Value="0,20"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="40"/>
+            </Style>
+        </Grid.Resources>
+        <Image Source="Images\img_logo_trient.png" MaxHeight="40" VerticalAlignment="Top"/>
+        <Grid VerticalAlignment="Center" Margin="0,60" >
+            <Border BorderBrush="#D8D8D8" BorderThickness="1">
+                <StackPanel Style="{StaticResource MainStackPanelStyle}">
+                    <StackPanel Style="{StaticResource StackPanelStyle}">
+                        <Label Content="Email ID"></Label>
+                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}"/>
+                        <Label Content="ID"></Label>
+                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}"/>
+                        <Label Content="Shop ID"></Label>
+                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}"/>
+                        <Button Content="Login" Style="{StaticResource LoginButtonStyle}" Click="Button_Click"></Button>
+                    </StackPanel>
+                    
+                </StackPanel>
+            </Border>
+        </Grid>
+
+
     </Grid>
 </Window>
