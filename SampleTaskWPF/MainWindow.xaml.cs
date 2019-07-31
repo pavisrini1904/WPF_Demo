@@ -27,9 +27,16 @@ namespace SampleTaskWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            HomeWindow nextPage = new HomeWindow();
-            nextPage.Show();
-            this.Close();
+            if(txtEmail.Text.Trim().Length==0  && txtName.Text.Trim().Length==0 && txtShopid.Text.Trim().Length==0){
+                MessageBox.Show("Please enter values for all the fields");
+            }
+            else
+            {
+                HomeWindow nextPage = new HomeWindow();
+                nextPage.Show();
+                this.Close();
+            }
+            
         }
     }
 }

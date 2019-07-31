@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace SampleTaskWPF
 {
     /// <summary>
@@ -23,6 +22,16 @@ namespace SampleTaskWPF
         public HomeWindowHeaderControl()
         {
             InitializeComponent();
+        }
+
+        private void ImgLogout_MouseDown(object sender, RoutedEventArgs e)
+        {
+
+            MainWindow nextPage = new MainWindow();
+            nextPage.Show();
+
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
         }
     }
 }

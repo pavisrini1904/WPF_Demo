@@ -45,6 +45,16 @@
                 <Setter Property="Width" Value="300"></Setter>
                 <Setter Property="FontSize" Value="18"></Setter>
             </Style>
+            <Style x:Key="SaveButtonStyle" TargetType="Label">
+                <Setter Property="Background" Value="{StaticResource LightGreenColor}"></Setter>
+                <Setter Property="Height" Value="30"></Setter>
+                <Setter Property="Width" Value="60"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Margin" Value="10,40,0,0"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="Padding" Value="9,0,0,5"></Setter>
+                
+            </Style>
             <Style x:Key="DeleteImageStyle" TargetType="Border">
                 <Setter Property="BorderThickness" Value="0"></Setter>
                 <Setter Property="BorderBrush" Value="Transparent"></Setter>
@@ -118,13 +128,13 @@
                                 </TextBox>
                             </Grid>
                         </StackPanel>
-                        <Button x:Name="btnSave" Content="Save"  Background="{StaticResource LightGreenColor}"  Grid.Column="3" Width="80" Height="40" Click="BtnSave_Click">
-                            <Button.Resources>
+                        <Label x:Name="btnSave" Content="Save" Grid.Column="3" Style="{StaticResource SaveButtonStyle}" MouseDown="BtnSave_Click">
+                            <Label.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
                                 </Style>
-                            </Button.Resources>
-                        </Button>
+                            </Label.Resources>
+                        </Label>
                     </Grid>
                     
                 </StackPanel>

@@ -27,12 +27,14 @@
             <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
                 <Setter Property="CornerRadius" Value="5"></Setter>
             </Style>
-            <Style x:Key="LoginButtonStyle" TargetType="Button">
+            <Style x:Key="LoginButtonStyle" TargetType="Label">
                 <Setter Property="Background" Value="{StaticResource LightGreenColor}"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="Margin" Value="0,20"/>
-                <Setter Property="Width" Value="100"/>
-                <Setter Property="Height" Value="40"/>
+                <Setter Property="Width" Value="80"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Padding" Value="25,6"/>
+                <Setter Property="FontSize" Value="12"/>
             </Style>
         </Grid.Resources>
         <Image Source="Images\img_logo_trient.png" MaxHeight="40" VerticalAlignment="Top"/>
@@ -41,15 +43,15 @@
                 <StackPanel Style="{StaticResource MainStackPanelStyle}">
                     <StackPanel Style="{StaticResource StackPanelStyle}">
                         <Label Content="Email ID" Style="{StaticResource LoginPageLabelStyle}"></Label>
-                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}">
+                        <TextBox x:Name="txtEmail" Style="{StaticResource LoginPageTextBoxStyle}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
                                 </Style>
                             </TextBox.Resources>
                         </TextBox>
-                        <Label Content="ID" Style="{StaticResource LoginPageLabelStyle}"></Label>
-                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}">
+                        <Label Content="Name" Style="{StaticResource LoginPageLabelStyle}"></Label>
+                        <TextBox x:Name="txtName" Style="{StaticResource LoginPageTextBoxStyle}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
@@ -57,20 +59,20 @@
                             </TextBox.Resources>
                         </TextBox>
                         <Label Content="Shop ID" Style="{StaticResource LoginPageLabelStyle}"></Label>
-                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}">
+                        <TextBox x:Name="txtShopid" Style="{StaticResource LoginPageTextBoxStyle}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
                                 </Style>
                             </TextBox.Resources>
                         </TextBox>
-                        <Button Content="Login" Style="{StaticResource LoginButtonStyle}" Click="Button_Click">
-                            <Button.Resources>
+                        <Label Content="Login" Style="{StaticResource LoginButtonStyle}" MouseDown="Button_Click">
+                            <Label.Resources>
                                     <Style TargetType="{x:Type Border}">
                                         <Setter Property="CornerRadius" Value="3"/>
                                     </Style>
-                            </Button.Resources>
-                        </Button>
+                            </Label.Resources>
+                        </Label>
                     </StackPanel>
                     
                 </StackPanel>

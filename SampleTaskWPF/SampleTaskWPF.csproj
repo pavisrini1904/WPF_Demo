@@ -118,5 +118,8 @@
   <ItemGroup>
     <Resource Include="Images\iconbtn_check.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SettingsIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
