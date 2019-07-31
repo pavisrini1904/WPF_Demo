@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SampleTaskWPF"
         mc:Ignorable="d"
-        WindowState="Maximized" WindowStyle="None" Title="HomeWindow" Height="450" Width="800">
+        WindowState="Maximized" Title="HomeWindow" Height="450" Width="900">
     <Grid >
         <Grid.Resources>
             <Style x:Key="GreenStackPanelStyle" TargetType="StackPanel">
@@ -29,12 +29,29 @@
             <Style x:Key="ColumnWiseStackPanelStyle" TargetType="StackPanel">
                 <Setter Property="Orientation" Value="Horizontal"></Setter>
             </Style>
+            <Style x:Key="ListHeaderStyle" TargetType="StackPanel">
+                <Setter Property="Height" Value="40"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                <Setter Property="Background" Value="{StaticResource LightGrayColor}"></Setter>
+                <Setter Property="Margin" Value="0,200,0,0"></Setter>
+            </Style>
             <Style x:Key="TextboxLableStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+            <Style x:Key="ListItemFontSize" TargetType="Label">
                 <Setter Property="FontSize" Value="22"></Setter>
             </Style>
             <Style x:Key="TextboxStyle" TargetType="TextBox">
                 <Setter Property="Width" Value="300"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
             </Style>
+            <Style x:Key="DeleteImageStyle" TargetType="Border">
+                <Setter Property="BorderThickness" Value="0"></Setter>
+                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                <Setter Property="CornerRadius" Value="360"></Setter>
+                <Setter Property="BorderThickness" Value="0"></Setter>
+            </Style>
+            
         </Grid.Resources>
         <Grid x:Name="HeaderLayout">
             <local:HomeWindowHeaderControl/>
@@ -59,7 +76,13 @@
                                     <RowDefinition Height="30"/>
                                 </Grid.RowDefinitions>
                                 <Label Style="{StaticResource TextboxLableStyle}">Country</Label>
-                                <TextBox Grid.Row="1" Style="{StaticResource TextboxStyle}"></TextBox>
+                                <TextBox x:Name="txtCountry" Grid.Row="1" Style="{StaticResource TextboxStyle}">
+                                    <TextBox.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="3"/>
+                                        </Style>
+                                    </TextBox.Resources>
+                                </TextBox>
                             </Grid>
                             
                         </StackPanel>
@@ -69,8 +92,14 @@
                                     <RowDefinition/>
                                     <RowDefinition Height="30"/>
                                 </Grid.RowDefinitions>
-                                <Label Style="{StaticResource TextboxLableStyle}">City</Label>
-                                <TextBox Grid.Row="1" Style="{StaticResource TextboxStyle}"></TextBox>
+                                <Label Style="{StaticResource TextboxLableStyle}">State</Label>
+                                <TextBox x:Name="txtState" Grid.Row="1" Style="{StaticResource TextboxStyle}">
+                                    <TextBox.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="3"/>
+                                        </Style>
+                                    </TextBox.Resources>
+                                </TextBox>
                             </Grid>
                         </StackPanel>
                         <StackPanel Style="{StaticResource ColumnWiseStackPanelStyle}" Grid.Column="2">
@@ -79,16 +108,86 @@
                                     <RowDefinition/>
                                     <RowDefinition Height="30"/>
                                 </Grid.RowDefinitions>
-                                <Label Style="{StaticResource TextboxLableStyle}">State</Label>
-                                <TextBox Grid.Row="1" Style="{StaticResource TextboxStyle}"></TextBox>
+                                <Label Style="{StaticResource TextboxLableStyle}">City</Label>
+                                <TextBox x:Name="txtCity" Grid.Row="1" Style="{StaticResource TextboxStyle}">
+                                    <TextBox.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="3"/>
+                                        </Style>
+                                    </TextBox.Resources>
+                                </TextBox>
                             </Grid>
                         </StackPanel>
-                        <StackPanel Background="{StaticResource LightGreenColor}"  Grid.Column="3" Width="200" Height="40">
-                            
-                        </StackPanel>
+                        <Button x:Name="btnSave" Content="Save"  Background="{StaticResource LightGreenColor}"  Grid.Column="3" Width="80" Height="40" Click="BtnSave_Click">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </Grid>
                     
                 </StackPanel>
+            </StackPanel>
+            <StackPanel Style="{StaticResource ListHeaderStyle}">
+                <StackPanel Margin="20,0,0,0">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="430"/>
+                        <ColumnDefinition Width="430"/>
+                            <ColumnDefinition Width="370"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Country" Style="{StaticResource TextboxLableStyle}"></Label>
+                        <Label Content="State" Grid.Column="1" Style="{StaticResource TextboxLableStyle}"></Label>
+                        <Label Content="City" Grid.Column="2" Style="{StaticResource TextboxLableStyle}"></Label>
+                        <Label Content="Remove" Grid.Column="3" Style="{StaticResource TextboxLableStyle}"></Label>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="0,240,0,0">
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger Property="ItemsControl.AlternationIndex"  Value="0">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                                <Trigger Property="ItemsControl.AlternationIndex"  Value="1">
+                                    <Setter Property="Background" Value="{StaticResource LightGrayColor}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        <DataTemplate DataType="system:String">
+                            <!-- put your data template here -->
+                        </DataTemplate>
+                    </Grid.Resources>
+                    <ListBox x:Name="lstDetails"  AlternationCount="2">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="15,0,0,0">
+                                    <Grid >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="430"/>
+                                            <ColumnDefinition Width="430"/>
+                                            <ColumnDefinition Width="390"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="{Binding Country}"></Label>
+                                        <Label Content="{Binding State}" Grid.Column="1"></Label>
+                                        <Label Content="{Binding City}" Grid.Column="2"></Label>
+                                    </Grid>
+                                    
+                                    <Border x:Name="btnRemove" MouseDown="btnRemoveList_Click" >
+                                        <Image x:Name="btnAdd"  Source="Images/iconbtn_check.png"/>
+                                    </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        
+                    </ListBox>
+                </Grid>
             </StackPanel>
         </Grid>
     </Grid>

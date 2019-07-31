@@ -15,10 +15,14 @@
             </Style>
             <Style x:Key="StackPanelStyle" TargetType="StackPanel">
                 <Setter Property="Background" Value="{StaticResource LightGrayColor}"></Setter>
-                <Setter Property="Margin" Value="50,50"></Setter>
+                <Setter Property="Margin" Value="30,30"></Setter>
             </Style>
             <Style x:Key="LoginPageTextBoxStyle" TargetType="TextBox">
                 <Setter Property="Height" Value="30"></Setter>
+                <Setter Property="FontSize" Value="17"></Setter>
+            </Style>
+            <Style x:Key="LoginPageLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18"></Setter>
             </Style>
             <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
                 <Setter Property="CornerRadius" Value="5"></Setter>
@@ -36,13 +40,37 @@
             <Border BorderBrush="#D8D8D8" BorderThickness="1" Style="{StaticResource BorderStyle}">
                 <StackPanel Style="{StaticResource MainStackPanelStyle}">
                     <StackPanel Style="{StaticResource StackPanelStyle}">
-                        <Label Content="Email ID"></Label>
-                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}"/>
-                        <Label Content="ID"></Label>
-                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}"/>
-                        <Label Content="Shop ID"></Label>
-                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}"/>
-                        <Button Content="Login" Style="{StaticResource LoginButtonStyle}" Click="Button_Click"></Button>
+                        <Label Content="Email ID" Style="{StaticResource LoginPageLabelStyle}"></Label>
+                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <Label Content="ID" Style="{StaticResource LoginPageLabelStyle}"></Label>
+                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <Label Content="Shop ID" Style="{StaticResource LoginPageLabelStyle}"></Label>
+                        <TextBox Style="{StaticResource LoginPageTextBoxStyle}">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <Button Content="Login" Style="{StaticResource LoginButtonStyle}" Click="Button_Click">
+                            <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                            </Button.Resources>
+                        </Button>
                     </StackPanel>
                     
                 </StackPanel>

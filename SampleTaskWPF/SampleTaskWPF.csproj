@@ -71,6 +71,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DetailsModel.cs" />
     <Compile Include="HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
@@ -113,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon_settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconbtn_check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
