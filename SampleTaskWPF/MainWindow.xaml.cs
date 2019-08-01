@@ -23,9 +23,6 @@ namespace SampleTaskWPF
         public MainWindow()
         {
             InitializeComponent();
-            txtEmail.Text = "email";
-            txtName.Text = "name";
-            txtShopid.Text = "eafa";
 
         }
 
