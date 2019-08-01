@@ -6,73 +6,74 @@
         xmlns:local="clr-namespace:SampleTaskWPF"
         mc:Ignorable="d"
         WindowState="Maximized" Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="MainStackPanelStyle" TargetType="StackPanel">
+            <Setter Property="Background" Value="#F7F7F7"></Setter>
+            <Setter Property="Height" Value="300"></Setter>
+            <Setter Property="Width" Value="350"></Setter>
+        </Style>
+        <Style x:Key="StackPanelStyle" TargetType="StackPanel">
+            <Setter Property="Background" Value="{StaticResource LightGrayColor}"></Setter>
+            <Setter Property="Margin" Value="30,30"></Setter>
+        </Style>
+        
+        
+        <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="CornerRadius" Value="5"></Setter>
+        </Style>
+        <Style x:Key="LoginButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" Background="{StaticResource LightGreenColor}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{StaticResource LightGreenColor}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,20"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Padding" Value="20,6"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property = "IsMouseOver" Value = "True">
+                    <Setter Property = "Foreground" Value = "White" />
+                    <Setter Property = "Background" Value = "{StaticResource LightGreenColor}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </Window.Resources>
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid.Resources>
-            <Style x:Key="MainStackPanelStyle" TargetType="StackPanel">
-                <Setter Property="Background" Value="#F7F7F7"></Setter>
-                <Setter Property="Height" Value="300"></Setter>
-                <Setter Property="Width" Value="350"></Setter>
-            </Style>
-            <Style x:Key="StackPanelStyle" TargetType="StackPanel">
-                <Setter Property="Background" Value="{StaticResource LightGrayColor}"></Setter>
-                <Setter Property="Margin" Value="30,30"></Setter>
-            </Style>
-            <Style x:Key="LoginPageTextBoxStyle" TargetType="TextBox">
-                <Setter Property="Height" Value="30"></Setter>
-                <Setter Property="FontSize" Value="17"></Setter>
-            </Style>
-            <Style x:Key="LoginPageLabelStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="18"></Setter>
-            </Style>
-            <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
-                <Setter Property="CornerRadius" Value="5"></Setter>
-            </Style>
-            <Style x:Key="LoginButtonStyle" TargetType="Label">
-                <Setter Property="Background" Value="{StaticResource LightGreenColor}"/>
-                <Setter Property="Foreground" Value="White"/>
-                <Setter Property="Margin" Value="0,20"/>
-                <Setter Property="Width" Value="80"/>
-                <Setter Property="Height" Value="30"/>
-                <Setter Property="Padding" Value="25,6"/>
-                <Setter Property="FontSize" Value="12"/>
-            </Style>
-        </Grid.Resources>
         <Image Source="Images\img_logo_trient.png" MaxHeight="40" VerticalAlignment="Top"/>
         <Grid VerticalAlignment="Center" Margin="0,60" >
             <Border BorderBrush="#D8D8D8" BorderThickness="1" Style="{StaticResource BorderStyle}">
                 <StackPanel Style="{StaticResource MainStackPanelStyle}">
                     <StackPanel Style="{StaticResource StackPanelStyle}">
-                        <Label Content="Email ID" Style="{StaticResource LoginPageLabelStyle}"></Label>
-                        <TextBox x:Name="txtEmail" Style="{StaticResource LoginPageTextBoxStyle}">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="3"/>
-                                </Style>
-                            </TextBox.Resources>
+                        <Label Content="Email ID" Style="{StaticResource TextboxLableStyle}"></Label>
+                        <TextBox x:Name="txtEmail" Style="{StaticResource TextBoxStyle}">
                         </TextBox>
-                        <Label Content="Name" Style="{StaticResource LoginPageLabelStyle}"></Label>
-                        <TextBox x:Name="txtName" Style="{StaticResource LoginPageTextBoxStyle}">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="3"/>
-                                </Style>
-                            </TextBox.Resources>
+                        <Label Content="Name" Style="{StaticResource TextboxLableStyle}"></Label>
+                        <TextBox x:Name="txtName" Style="{StaticResource TextBoxStyle}">
                         </TextBox>
-                        <Label Content="Shop ID" Style="{StaticResource LoginPageLabelStyle}"></Label>
-                        <TextBox x:Name="txtShopid" Style="{StaticResource LoginPageTextBoxStyle}">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="3"/>
-                                </Style>
-                            </TextBox.Resources>
+                        <Label Content="Shop ID" Style="{StaticResource TextboxLableStyle}"></Label>
+                        <TextBox x:Name="txtShopid" Style="{StaticResource TextBoxStyle}">
                         </TextBox>
-                        <Label Content="Login" Style="{StaticResource LoginButtonStyle}" MouseDown="Button_Click">
-                            <Label.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                            </Label.Resources>
-                        </Label>
+                        <Button Content="Login" Style="{StaticResource LoginButtonStyle}" Margin="0,20" Click="Button_Click">
+                        </Button>
                     </StackPanel>
                     
                 </StackPanel>

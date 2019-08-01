@@ -23,10 +23,15 @@ namespace SampleTaskWPF
         public MainWindow()
         {
             InitializeComponent();
+            txtEmail.Text = "email";
+            txtName.Text = "name";
+            txtShopid.Text = "eafa";
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+           
             if(txtEmail.Text.Trim().Length==0  && txtName.Text.Trim().Length==0 && txtShopid.Text.Trim().Length==0){
                 MessageBox.Show("Please enter values for all the fields");
             }

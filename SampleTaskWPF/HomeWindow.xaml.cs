@@ -32,8 +32,7 @@ namespace SampleTaskWPF
             items.Add(new DetailsModel() { Country = "Maldives", City="Baa Btholhu", State = "Eydhafushi"});
             lstDetails.ItemsSource = items;
 
-            HomeWindowHeaderControl homeWindowHeaderControl = new HomeWindowHeaderControl();
-            homeWindowHeaderControl.imgLogout.MouseDown += ImgLogout_MouseDown;
+            
         }
 
         private void ImgLogout_MouseDown(object sender, MouseButtonEventArgs e)

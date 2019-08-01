@@ -4,6 +4,19 @@
              xmlns:local="clr-namespace:SampleTaskWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="FontSize" Value="17"></Setter>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style x:Key="TextboxLableStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18"></Setter>
+        </Style>
+      
         <SolidColorBrush x:Key="LightGreenColor" Color="#2FA999"/>
         <SolidColorBrush x:Key="LightGrayColor" Color="#F7F7F7"/>
     </Application.Resources>
